@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <sys/stat.h>
 #include "bmp.h"
 
 // 파일에서 파일 헤더와 정보 헤더를 읽고 BMP 파일이 맞는지 확인한다.
@@ -16,4 +17,12 @@ int read_header(FILE *fp, BITMAPFILEHEADER *fh, BITMAPINFOHEADER *ih)
         return -1;
 
     return 0;
+}
+
+// Compare identities, including hard links and symbolic links.
+int same_file(const char *first, const char *second)
+{
+    struct stat a, b;
+    return stat(first, &a) == 0 && stat(second, &b) == 0 &&
+           a.st_dev == b.st_dev && a.st_ino == b.st_ino;
 }

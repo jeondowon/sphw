@@ -14,6 +14,11 @@ int hex_dump(char *in_name, char *out_name)
     int c;
     int count = 0; // 지금까지 출력한 바이트 수 (= 다음 바이트의 상대 주소)
 
+    if (same_file(in_name, out_name)) {
+        fprintf(stderr, "Input and output must be different files.\n");
+        return -1;
+    }
+
     in = fopen(in_name, "rb");
     if (in == NULL) {
         printf("파일을 열 수 없습니다: %s\n", in_name);
