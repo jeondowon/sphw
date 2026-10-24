@@ -22,7 +22,13 @@ int read_header(FILE *fp, BITMAPFILEHEADER *fh, BITMAPINFOHEADER *ih)
 // Compare identities, including hard links and symbolic links.
 int same_file(const char *first, const char *second)
 {
-    struct stat a, b;
-    return stat(first, &a) == 0 && stat(second, &b) == 0 &&
-           a.st_dev == b.st_dev && a.st_ino == b.st_ino;
+    struct stat first_info, second_info;
+
+    if (stat(first, &first_info) != 0)
+        return 0;
+    if (stat(second, &second_info) != 0)
+        return 0;
+
+    return first_info.st_dev == second_info.st_dev &&
+           first_info.st_ino == second_info.st_ino;
 }
