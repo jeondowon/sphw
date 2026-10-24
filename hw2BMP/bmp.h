@@ -36,7 +36,6 @@ typedef struct{
 
 // bmp.c
 int read_header(FILE* fp, BITMAPFILEHEADER* fh, BITMAPINFOHEADER* ih);
-int same_file(const char* first, const char* second);
 
 // header.c (과제 1-1)
 int print_header(char* filename);
