@@ -1,0 +1,11 @@
+# 빌드 결과물
+*.o
+hw2BMP/hw2BMP
+
+# 실행 결과물
+hw2BMP/body.txt
+hw2BMP/khj_gray.bmp
+hw2BMP/test_out/
+
+# macOS
+.DS_Store
