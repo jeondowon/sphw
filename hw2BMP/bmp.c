@@ -18,7 +18,8 @@ int read_header(FILE* fp, BITMAPFILEHEADER* fh, BITMAPINFOHEADER* ih){
     return 0;
 }
 
-// Compare identities, including hard links and symbolic links.
+// 두 경로가 같은 파일인지 확인한다. 하드 링크와 심볼릭 링크도 같은 파일로 본다.
+// 같은 파일이면 1, 다르거나 stat 에 실패하면 0 을 돌려준다.
 int same_file(const char* first, const char* second){
     struct stat first_info, second_info;
 
