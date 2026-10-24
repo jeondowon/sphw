@@ -1,8 +1,8 @@
 # hw2BMP Makefile
-#
+
 # make       : 컴파일해서 hw2BMP 실행 파일을 만든다
-# make test  : khj.bmp 로 테스트를 실행한다
-# make clean : 만들어진 파일들을 지운다
+# make test  : khj.bmp 로 테스트를 실행
+# make clean : 만들어진 파일들을 지움
 
 CC = gcc
 CFLAGS = -Wall
