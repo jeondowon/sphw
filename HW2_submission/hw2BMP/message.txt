@@ -1,0 +1,2 @@
+Hello, System Programming!
+이 메시지는 BMP 이미지 안에 숨겨져 있습니다.
