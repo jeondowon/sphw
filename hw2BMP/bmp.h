@@ -46,4 +46,10 @@ int hex_dump(char* in_name, char* out_name);
 // grayscale.c (과제 1-3)
 int make_gray(char* in_name, char* out_name);
 
+// encrypt.c (과제 2-1)
+int encrypt_msg(char* in_name, char* msg_name, char* out_name);
+
+// decrypt.c (과제 2-2)
+int decrypt_msg(char* in_name);
+
 #endif

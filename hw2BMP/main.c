@@ -9,6 +9,8 @@ void print_usage(char *name)
     printf("  %s -h <input_bmp_file>\n", name);
     printf("  %s -o <input_bmp_file> <out_file>\n", name);
     printf("  %s -g <input_bmp_file> <output_bmp_file>\n", name);
+    printf("  %s -e <org_bmp_file> <message_file> <enc_bmp_file>\n", name);
+    printf("  %s -d <encrypt_bmp_filename>\n", name);
 }
 
 int main(int argc, char *argv[])
@@ -22,6 +24,10 @@ int main(int argc, char *argv[])
         result = hex_dump(argv[2], argv[3]);
     } else if (argc == 4 && strcmp(argv[1], "-g") == 0) {
         result = make_gray(argv[2], argv[3]);
+    } else if (argc == 5 && strcmp(argv[1], "-e") == 0) {
+        result = encrypt_msg(argv[2], argv[3], argv[4]);
+    } else if (argc == 3 && strcmp(argv[1], "-d") == 0) {
+        result = decrypt_msg(argv[2]);
     } else {
         print_usage(argv[0]);
         return 1;
